@@ -13,10 +13,5 @@ class Pay extends Model
 	protected $fillable = [
 	'Payname',
 	'Pay_money',
-	'package_id'
-	
-	
-	];
-
-	
+	'package_id'];
 }

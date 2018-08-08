@@ -81,8 +81,9 @@
                                         <td>
                                             <select class="form-control" name="attrtype[]" id="attrtype[]" required="true">
 												<option value="0">Please selected type list</option>
-												<option value="1">Food</option>
-												<option value="2">ของใช้</option>
+												@foreach($type as $t)
+													<option value="{{$t->tp_id}}">{{$t->tp_name}}</option>
+												@endforeach 
 											</select>
                                         </td>
                                         <td>
@@ -106,8 +107,9 @@
                                         <td>
                                             <select class="form-control" name="old_attrtype[{{ $id }}]" id="old_attrtype[{{ $id }}]" required="true">
 												<option value="0">Please selected type list</option>
-												<option value="1" {{$p->Pay_type == 1 ? 'selected="selected"' : '' }}>Food</option>
-												<option value="2" {{$p->Pay_type == 2 ? 'selected="selected"' : '' }}>ของใช้</option>
+                                                @foreach($type as $t)
+                                                    <option value="{{$t->tp_id}}" {{$p->Pay_type == $t->tp_id ? 'selected="selected"' : '' }}>{{$t->tp_name}}</option>
+												@endforeach 
 											</select>
                                         </td>
                                         <td>
@@ -167,8 +169,9 @@
         +'<td>'
         +'<select class="form-control" name="attrtype[]" id="attrtype[]" required="true">'
 		+'<option value="0">Please selected type list</option>'
-		+'<option value="1">Food</option>'
-		+'<option value="2">ของใช้</option>'
+		+'@foreach($type as $t)'
+		+'	<option value="{{$t->tp_id}}">{{$t->tp_name}}</option>'
+		+'@endforeach' 
 		+'</select>'
         +'</td>'
 		+'<td>'

@@ -67,8 +67,9 @@
                                                 <td>
                                                         <select class="form-control" name="attrtype[]" id="attrtype[]" required="true">
 															<option value="0">Please selected type list</option>
-															<option value="1">Food</option>
-															<option value="2">ของใช้</option>
+															@foreach($type as $t)
+															<option value="{{$t->tp_id}}">{{$t->tp_name}}</option>
+															@endforeach 
 														</select>
                                                 </td>
                                                 <td>
@@ -89,7 +90,7 @@
                                 <div class="col-md-12" style="padding-right: 100px;">
                                     <div class="pull-right">
                                         <a href="{{url('payment/list')}}" class="btn btn-default" >Cancel</a>
-                                        <a href="#" class="btn btn-danger" onclick="validateform()">Submit</a>
+                                        <a href="#" class="btn btn-danger" onclick="validateform()">Save</a>
                                     </div>
                                 </div>
                             </div>
@@ -121,8 +122,9 @@
         +'<td>'
         +'<select class="form-control" name="attrtype[]" id="attrtype[]" required="true">'
 		+'<option value="0">Please selected type list</option>'
-		+'<option value="1">Food</option>'
-		+'<option value="2">ของใช้</option>'
+		+'@foreach($type as $t)'
+		+'	<option value="{{$t->tp_id}}">{{$t->tp_name}}</option>'
+		+'@endforeach' 
 		+'</select>'
         +'</td>'
 		+'<td>'

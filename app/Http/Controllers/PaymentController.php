@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Money;
 use App\Package;
+use App\Typeproduct;
 use App\Pay;
 use Auth;
 use Illuminate\Http\Request;
-
 class PaymentController extends Controller
 {
     public function __construct()
@@ -23,8 +23,9 @@ class PaymentController extends Controller
         return view('pages.payment.list')->with('list', $package);
     }
     public function create()
-    {
-        return view('pages.payment.create');
+    {   
+        $type = Typeproduct::get();
+        return view('pages.payment.create')->with('type',$type);
     }
     public function insert(Request $r)
     {
@@ -61,6 +62,7 @@ class PaymentController extends Controller
     }
     public function edit(Request $r)
     {
+        $type = Typeproduct::get();
         $package_data = Package::where('package_id', $r->id)->first();
         if ($package_data) {
             $attributes = Pay::where('package_id', $package_data->package_id)->get();
@@ -72,6 +74,7 @@ class PaymentController extends Controller
                     'data' => $package_data,
                     'property' => $property,
                     'attributes' => $attributes,
+                    'type' => $type,
                 ]
             );
         } else {
