@@ -8,9 +8,9 @@ class FileController extends Controller
 {
     public function fileUpload()
     {
-    	return view('upload');
+        return view('upload');
     }
- 
+
     /**
      * Show the application dashboard.
      *
@@ -18,14 +18,14 @@ class FileController extends Controller
      */
     public function fileUploadPost(Request $request)
     {
-        $request->validate([
-            'file' => 'required',
-		]);
- 
-        $fileName = time().'.'.request()->file->getClientOriginalExtension();
- 
-        request()->file->move(public_path('files'), $fileName);
- 
-        return response()->json(['success'=>'You have successfully upload file.']);
+        $fileName = time() . '.' . request()->file->getClientOriginalExtension();
+        $rand = str_random(20);
+        $folder = 'images/' . date("Y/m/d/his") . '/' . $rand;
+        mkdir($folder, 0755, true);
+        chmod($folder, 0755);
+        request()->file->move($folder, $fileName);
+        $package_image = "images/" . date("Y/m/d/his") . "/" . $rand . "/" . $fileName;
+        
+        return response()->json(['success' => 'You have successfully upload file.','path'=>$package_image]);
     }
 }

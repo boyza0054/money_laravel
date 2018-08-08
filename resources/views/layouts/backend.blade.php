@@ -51,14 +51,14 @@
             </a>
           </li>
           <li id="payment">
-            <a href="{{ Route('index') }}">
+            <a href="{{ Route('payment/list') }}">
               <i class="now-ui-icons fa fa-history" aria-hidden="true"></i>
               <p>Payment</p>
             </a>
           </li>
           <li id="upload">
             <a href="{{ Route('upload/list') }}">
-              <i class="now-ui-icons fa fa-history" aria-hidden="true"></i>
+              <i class="now-ui-icons fa fa-upload" aria-hidden="true"></i>
               <p>Upload file</p>
             </a>
           </li>
@@ -104,8 +104,8 @@
                   @if(Auth::user()->mstatus == 1)
                   <a class="dropdown-item" href="{{route('users/list')}}">All Users</a>
                   @endif
-                  <a class="dropdown-item" href="#">Setting</a>
-                  <a class="dropdown-item" href="user/logout">Logout</a>
+                  <a class="dropdown-item" href="{{Route("users/info",["id"=>Auth::user()->mid])}}">Setting</a>
+                  <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
                 </div>
               </li>
             </ul>
@@ -124,17 +124,12 @@
           <nav>
             <ul>
               <li>
-                <a href="https://www.creative-tim.com">
-                  Creative Tim
-                </a>
-              </li>
-              <li>
-                <a href="http://presentation.creative-tim.com">
+                <a href="#">
                   About Us
                 </a>
               </li>
               <li>
-                <a href="http://blog.creative-tim.com">
+                <a href="http://5650110054.blogspot.com/">
                   Blog
                 </a>
               </li>
@@ -144,9 +139,8 @@
             &copy;
             <script>
               document.write(new Date().getFullYear())
-            </script>, Designed by
-            <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by
-            <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
+            </script>, Coded by
+            <a href="https://web.facebook.com/sirichai.janpan" target="_blank">Mr.Sirichai Janpan</a>.
           </div>
         </div>
       </footer>
