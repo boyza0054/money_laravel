@@ -62,6 +62,12 @@
               <p>Upload file</p>
             </a>
           </li>
+          <li id="type">
+            <a href="{{ Route('type/list') }}">
+              <i class="now-ui-icons fa fa-cog" aria-hidden="true"></i>
+              <p>Type Expenses</p>
+            </a>
+          </li>
           <!-- <li class="active-pro">
             <a href="./upgrade.html">
               <i class="now-ui-icons arrows-1_cloud-download-93"></i>

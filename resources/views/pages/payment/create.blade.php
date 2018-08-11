@@ -81,7 +81,7 @@
                                                 <td>
                                                     <a class="btn btn-danger" id="circle_btn" onclick="deletefield2('defalut')" ><i class="fa fa-minus" aria-hidden="true"></i></a>
                                                 </td>
-                                            </tr>;
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
