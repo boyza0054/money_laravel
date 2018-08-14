@@ -270,22 +270,6 @@
 		});
 	});
 </script>
-<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-<script>
-
-	function rendercheckbox() {
-		var checked = $('input[name="istemplate"]:checked').val();
-		// console.log(checked);
-		if(checked == "1") {
-			var html_template = $("#template1").html();
-
-			tinymce.get("fulldesc").execCommand('mceSetContent', false, html_template);
-
-		} else {
-			tinymce.get("fulldesc").execCommand("mceSetContent",false,'กรอกรายละเอียด');
-		}
-	}
-</script>
 <style type="text/css">
     .table-hover tbody tr:hover {
         background-color: none;

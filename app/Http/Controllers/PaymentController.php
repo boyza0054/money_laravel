@@ -24,7 +24,7 @@ class PaymentController extends Controller
     }
     public function create()
     {   
-        $type = Typeproduct::get();
+        $type = Typeproduct::where('tp_delete', 0)->get();
         return view('pages.payment.create')->with('type',$type);
     }
     public function insert(Request $r)
@@ -62,7 +62,7 @@ class PaymentController extends Controller
     }
     public function edit(Request $r)
     {
-        $type = Typeproduct::get();
+        $type = Typeproduct::where('tp_delete', 0)->get();
         $package_data = Package::where('package_id', $r->id)->first();
         if ($package_data) {
             $attributes = Pay::where('package_id', $package_data->package_id)->get();
@@ -102,7 +102,7 @@ class PaymentController extends Controller
                 $newattr = new Pay();
                 $newattr->Payname = $attrname[$a];
                 $newattr->Pay_money = $attrvalue[$a];
-                $newattr->Pay_type = $attrtype[$i];
+                $newattr->Pay_type = $attrtype[$a];
                 $newattr->package_id = $package->package_id;
                 $newattr->save();
             }

@@ -43,7 +43,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::group(["prefix" => "type"], function () {
         Route::get("list", ["as" => "type/list", "uses" => "TypeController@list"]);
-        Route::get("create", ["as" => "type/create", "uses" => "TypeController@create"]);
         Route::post("insert", ["as" => "type/insert", "uses" => "TypeController@insert"]);
         Route::get("info", ["as" => "type/info", "uses" => "TypeController@edit"]);
         Route::post("update", ["as" => "type/update", "uses" => "TypeController@update"]);
